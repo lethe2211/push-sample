@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pwa": "ng build --prod  --output-path docs && npm run pwarun",
+    "pwarun": "http-server -p 8080 -c-1 docs",
+    "deploy": "ng build --prod --output-path docs --base-href /push-sample/ && git add . && git commit -m 'Update' && git push origin master"
   },
   "private": true,
   "dependencies": {

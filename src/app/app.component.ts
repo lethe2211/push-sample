@@ -37,6 +37,6 @@ export class AppComponent {
   }
 
   sendPushRequest() {
-
+    this.pushService.sendPushRequestToTheServer();
   }
 }
