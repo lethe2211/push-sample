@@ -19,6 +19,6 @@ export class PushNotificationService {
 
   public sendPushRequestToTheServer() {
     console.log('Will send a push request');
-    return this.http.post(`${SERVER_URL}/sendNotification`, null);
+    return this.http.post(`${SERVER_URL}/sendNotification`, null, {responseType: 'text'});
   }
 }
