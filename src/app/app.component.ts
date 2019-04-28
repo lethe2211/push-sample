@@ -37,6 +37,10 @@ export class AppComponent {
   }
 
   sendPushRequest() {
-    this.pushService.sendPushRequestToTheServer();
+    this.pushService
+      .sendPushRequestToTheServer()
+      .subscribe((res) => {
+        console.log(`Push request succeeded: ${res}`);
+      });
   }
 }

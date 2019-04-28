@@ -9,7 +9,7 @@
       "urls": [
         "/push-sample/favicon.ico",
         "/push-sample/index.html",
-        "/push-sample/main.eaaf8839bcab910d1c63.js",
+        "/push-sample/main.2243751bd7ed3260c639.js",
         "/push-sample/polyfills.7037a817a5bb670ed2ca.js",
         "/push-sample/runtime.ec2944dd8b20ec099bf3.js",
         "/push-sample/styles.3bb2a9d4949b7dc120a9.css"
@@ -44,8 +44,8 @@
     "/push-sample/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/push-sample/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/push-sample/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/push-sample/index.html": "74d0dde4f459de13c9e61de21aac1ca846ed916b",
-    "/push-sample/main.eaaf8839bcab910d1c63.js": "c5b6f3cdbc79435bbc080637ea1afa3254484dec",
+    "/push-sample/index.html": "17563f6b96bdd89066e0de77484452f03d39dd53",
+    "/push-sample/main.2243751bd7ed3260c639.js": "4e1ff81f8fffd03beb02ca23c79d788dc2dbc4ef",
     "/push-sample/polyfills.7037a817a5bb670ed2ca.js": "6946e10a03311677a01490b8e91741668e64e17e",
     "/push-sample/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/push-sample/styles.3bb2a9d4949b7dc120a9.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
