@@ -3,7 +3,7 @@ import { SwPush } from '@angular/service-worker';
 import { PushNotificationService } from './shared/services/push-notification.service';
 import { PushModel } from './shared/models/push-model';
 
-import { uuidv4 } from 'uuid/v4';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +16,13 @@ export class AppComponent {
 
   pushModel = new PushModel('Input push title', 'Input push message');
 
-  id = uuidv4();
+  id = null;
 
   constructor(
     private swPush: SwPush,
     private pushService: PushNotificationService
   ) {
+    this.id = UUID.UUID();
     this.swPush.subscription.subscribe(pushSubscription => {
       if (pushSubscription == null) {
         this.swPush.requestSubscription({
