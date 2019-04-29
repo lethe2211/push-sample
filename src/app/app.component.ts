@@ -22,25 +22,24 @@ export class AppComponent {
     private swPush: SwPush,
     private pushService: PushNotificationService
   ) {
-    this.id = UUID.UUID();
     this.swPush.subscription.subscribe(pushSubscription => {
-      if (pushSubscription == null) {
-        this.swPush.requestSubscription({
+      this.id = UUID.UUID();
+      this.swPush
+        .requestSubscription({
           serverPublicKey: this.VAPID_PUBLIC_KEY
         })
         .then(subscription => {
-          const payload = {'ID': this.id, 'subscription': subscription}
+          const payload = { 'ID': this.id, 'subscription': subscription }
           console.log('Will subscribe to server');
           this.pushService
             .sendSubscriptionToTheServer(payload)
             .subscribe();
         })
         .catch(console.error);
-    } else {
-        console.log('endpoint:', pushSubscription.toJSON().endpoint);
-        console.log('publicKey:', pushSubscription.toJSON().keys.p256dh);
-        console.log('authSecret:', pushSubscription.toJSON().keys.auth);
-      }
+      console.log('ID:', this.id);
+      console.log('endpoint:', pushSubscription.toJSON().endpoint);
+      console.log('publicKey:', pushSubscription.toJSON().keys.p256dh);
+      console.log('authSecret:', pushSubscription.toJSON().keys.auth);
     });
   }
 
