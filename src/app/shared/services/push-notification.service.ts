@@ -12,13 +12,13 @@ export class PushNotificationService {
     private http: HttpClient
   ) { }
 
-  public sendSubscriptionToTheServer(subscription: PushSubscription) {
-    console.log(`Will send a subscription request: ${JSON.stringify(subscription)}`);
-    return this.http.post(`${SERVER_URL}/subscription`, subscription);
+  public sendSubscriptionToTheServer(payload: any) {
+    console.log(`Will send a subscription request: ${JSON.stringify(payload)}`);
+    return this.http.post(`${SERVER_URL}/subscription`, payload);
   }
 
-  public sendPushRequestToTheServer(title: string, body?: string) {
+  public sendPushRequestToTheServer(id: string, title: string, body?: string) {
     console.log('Will send a push request');
-    return this.http.post(`${SERVER_URL}/sendNotification`, {'title': title, 'body': body}, {responseType: 'text'});
+    return this.http.post(`${SERVER_URL}/sendNotification`, {'ID': id, 'title': title, 'body': body}, {responseType: 'text'});
   }
 }
