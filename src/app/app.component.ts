@@ -44,26 +44,6 @@ export class AppComponent {
     });
   }
 
-  sendSubscribeRequest() {
-    if (this.swPush.isEnabled) {
-      console.log('Push is enabled');
-      // this.swPush
-      //   .requestSubscription({
-      //     serverPublicKey: this.VAPID_PUBLIC_KEY
-      //   })
-      //   .then(subscription => {
-      //     console.log('Will subscribe to server');
-      //     this.pushService
-      //       .sendSubscriptionToTheServer(subscription)
-      //       .subscribe();
-      //   })
-      //   .catch(console.error);
-      
-    } else {
-      console.log('Push is not enabled');
-    }
-  }
-
   sendPushRequest() {
     const title = this.pushModel.title;
     const body = this.pushModel.body;
