@@ -23,19 +23,21 @@ export class AppComponent {
     private pushService: PushNotificationService
   ) {
     this.swPush.subscription.subscribe(pushSubscription => {
-      this.id = UUID.UUID();
-      this.swPush
-        .requestSubscription({
-          serverPublicKey: this.VAPID_PUBLIC_KEY
-        })
-        .then(subscription => {
-          const payload = { 'ID': this.id, 'subscription': subscription }
-          console.log('Will subscribe to server');
-          this.pushService
-            .sendSubscriptionToTheServer(payload)
-            .subscribe();
-        })
-        .catch(console.error);
+      if (pushSubscription == null) {
+        this.id = UUID.UUID();
+        this.swPush
+          .requestSubscription({
+            serverPublicKey: this.VAPID_PUBLIC_KEY
+          })
+          .then(subscription => {
+            const payload = { 'ID': this.id, 'subscription': subscription }
+            console.log('Will subscribe to server');
+            this.pushService
+              .sendSubscriptionToTheServer(payload)
+              .subscribe();
+          })
+          .catch(console.error);
+      }
       console.log('ID:', this.id);
       console.log('endpoint:', pushSubscription.toJSON().endpoint);
       console.log('publicKey:', pushSubscription.toJSON().keys.p256dh);
