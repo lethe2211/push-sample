@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SwPush } from '@angular/service-worker';
 import { PushNotificationService } from './shared/services/push-notification.service';
+import { PushModel } from './shared/models/push-model';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,8 @@ import { PushNotificationService } from './shared/services/push-notification.ser
 export class AppComponent {
 
   readonly VAPID_PUBLIC_KEY = 'BAbb3DUbK_dUJeNLel2cA_4osDNzVHnFHCL5bw3PWgfBuJ6pkJj9mhARGKAkj28pCCGdK6xVRXeAM2aEC6NE0z4';
+
+  pushModel = new PushModel('Input push title', 'Input push message');
 
   constructor(
     private swPush: SwPush,
@@ -37,10 +40,15 @@ export class AppComponent {
   }
 
   sendPushRequest() {
+    const title = this.pushModel.title;
+    const body = this.pushModel.body;
+
     this.pushService
-      .sendPushRequestToTheServer()
+      .sendPushRequestToTheServer(title, body)
       .subscribe((res) => {
         console.log(`Push request succeeded: ${res}`);
       });
   }
+
+  get diagnostic() { return JSON.stringify(this.pushModel); }
 }

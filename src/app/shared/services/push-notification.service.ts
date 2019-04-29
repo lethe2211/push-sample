@@ -17,8 +17,8 @@ export class PushNotificationService {
     return this.http.post(`${SERVER_URL}/subscription`, subscription);
   }
 
-  public sendPushRequestToTheServer() {
+  public sendPushRequestToTheServer(title: string, body?: string) {
     console.log('Will send a push request');
-    return this.http.post(`${SERVER_URL}/sendNotification`, null, {responseType: 'text'});
+    return this.http.post(`${SERVER_URL}/sendNotification`, {'title': title, 'body': body}, {responseType: 'text'});
   }
 }
